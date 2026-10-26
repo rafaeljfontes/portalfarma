@@ -1,0 +1,393 @@
+                /* =========================================================
+                LAYOUT TEXTO + BOTÕES (LADO A LADO)
+                ========================================================= */
+                .caminhos-layout {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+
+                /* botões à direita */
+                .caminhos-botoes {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 28px;
+                    align-items: flex-end;
+                }
+
+                /* =========================================================
+                CAMINHOS – BASE
+                ========================================================= */
+                .section-caminhos {
+                    padding: 70px 0;
+                    background-image: url("../img/background-capacifar-logos.png");
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: cover;
+                }
+
+                .section-caminhos .container-portal {
+                    max-width: 1300px;
+                }
+
+                @media (max-width: 576px) {
+                    .section-caminhos {
+                        background-position: top center;
+                    }
+                }
+
+                /* =========================
+                TEXTO CAMINHOS – LAYOUT IMAGEM
+                ========================= */
+
+                /* título */
+                .caminhos-titulo {
+                    font-size: 51px;
+                    line-height: 1.25;
+                    letter-spacing: 0.07em;
+                    color: #f13356;
+                    margin-bottom: 17px;
+                    text-transform: uppercase;
+                }
+
+                .caminhos-texto {
+                    font-size: 20px;
+                    line-height: 1.55;
+                    color: #334155;
+                    max-width: 490px;
+                }
+
+                /* =========================================================
+                BOTÕES
+                ========================================================= */
+                .caminhos-botoes {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 24px;
+                    align-items: flex-end;
+                }
+
+                .btn-caminho, .btn-universitario {
+                    position: relative;
+                    width: 400px;
+                    height: 100px;
+                    border-radius: 28px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    padding: 0;
+                    text-decoration: none;
+                    overflow: hidden;
+
+                    box-shadow:
+                        0 8px 24px rgba(0, 0, 0, 0.18);
+
+                    background-image: linear-gradient(145deg,
+                            rgba(255, 255, 255, 0.12),
+                            rgba(255, 255, 255, 0));
+                    background-size: 200% 200%;
+                    background-position: 0% 0%;
+
+                    transition:
+                        transform .25s ease,
+                        box-shadow .25s ease,
+                        background-position .4s ease;
+                }
+
+                .btn-caminho:hover {
+                    transform: translateY(-2px);
+
+                    box-shadow:
+                        0 14px 32px rgba(0, 0, 0, 0.22);
+
+                    background-position: 100% 100%;
+                }
+
+                
+                /* cores */
+                .btn-presencial {
+                    background: #f43f3f;
+                }
+
+                .btn-online {
+                    background: #0ea5b7;
+                }
+
+                .btn-universitario {
+                    background: #004761;
+                }
+
+
+                /* texto do botão */
+                .btn-texto {
+                    font-size: 26px;
+                    font-weight: 800;
+                    line-height: 1.05;
+                    letter-spacing: 0.03em;
+                }
+
+                .btn-logos {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 100%;
+                    height: 100%;
+                }
+
+                .btn-logos img {
+                    max-width: 70%;
+                    max-height: 50%;
+                    object-fit: contain;
+                }
+
+
+                /* =========================================================
+                RESPONSIVO – BOTÕES CAMINHOS
+                ========================================================= */
+
+                /* tablets e menores */
+                @media (max-width: 992px) and (min-width: 577px) {
+
+                    .caminhos-titulo br {
+                        display: none;
+                    }
+
+                    /* mantém TEXTO + BOTÕES lado a lado */
+                    .caminhos-layout {
+                        flex-direction: row;
+                        align-items: flex-start;
+                        gap: 32px;
+                    }
+
+                    .caminhos-texto-wrapper {
+                        padding: 0 0 0 40px;
+                        max-width: 60%;
+                    }
+
+                    .caminhos-titulo {
+                        font-size: 28px;
+                        line-height: 1.35;
+                        letter-spacing: 0.05em;
+                        margin-bottom: 16px;
+                    }
+
+                    .caminhos-texto {
+                        font-size: 16px;
+                        line-height: 1.6;
+                        max-width: 320px;
+                    }
+
+                    .caminhos-botoes {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 26px;
+                        align-items: flex-end;
+                        padding-right: 40px;
+                    }
+
+                    .btn-caminho {
+                        width: 260px;
+                        height: 96px;
+                        border-radius: 24px;
+                    }
+
+                    .section-caminhos {
+                        padding: 40px 0;
+                    }
+                }
+
+                @media (max-width: 768px) {
+                    .caminhos-texto-wrapper {
+                        padding: 0 22px;
+                    }
+
+                    .caminhos-titulo {
+                        margin-bottom: 12px;
+                        font-size: 24px;
+                        letter-spacing: 0.03em;
+                        line-height: 1.43;
+                    }
+
+                    .caminhos-titulo br {
+                        display: none;
+                    }
+
+                    .caminhos-texto {
+                        font-size: 16px;
+                        line-height: 1.55;
+
+                    }
+
+                    /* botões centralizados */
+                    .caminhos-botoes {
+                        grid-template-columns: repeat(2, 180px);
+                        gap: 19px;
+                        justify-content: center;
+                    }
+
+                    .btn-caminho {
+                        width: 180px;
+                        height: 80px;
+                        border-radius: 20px;
+                    }
+                }
+
+                @media (max-width: 576px) {
+
+                    .caminhos-layout {
+                        flex-direction: column;
+                        align-items: stretch;
+                    }
+
+                    .caminhos-texto-wrapper {
+                        padding: 0 26px 5px;
+                    }
+
+                    .caminhos-texto {
+                        max-width: 320px;
+                    }
+
+                    .section-caminhos {
+                        padding: 30px 0 35px;
+                        min-height: auto;
+                    }
+
+                    .caminhos-botoes {
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        gap: 16px;
+                        padding: 0 26px;
+                        width: 100%;
+                        margin-top: 0;
+                        justify-items: center;
+                    }
+
+                    .caminhos-botoes a.btn-universitario {
+                        grid-column: 1 / -1;
+                        justify-self: center;
+                        max-width: 300px;
+                    }
+
+                    .caminhos-botoes a.btn-universitario .btn-logos img {
+                        max-width: 60%;
+                        max-height: 45%;
+                        object-fit: contain;
+                    }
+
+
+                    .btn-caminho {
+                        width: 100%;
+                        height: 72px;
+                        border-radius: 16px;
+                    }
+                }
+
+
+                /* ======================
+                BOTÕES – TRANSIÇÃO LOGO → TEXTO
+                ====================== */
+
+                .btn-swap {
+                    position: relative;
+                    overflow: hidden;
+                }
+
+                /* LOGO (estado inicial) */
+                .btn-swap .btn-logos {
+                    position: absolute;
+                    inset: 0;
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    transition:
+                        opacity 0.35s ease,
+                        transform 0.35s ease;
+                }
+
+                /* TEXTO (estado oculto) */
+                .btn-swap .btn-conteudo {
+                    position: absolute;
+                    inset: 0;
+
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+
+                    padding: 0 34px;
+
+                    text-align: center;
+                    color: #ffffff;
+
+                    opacity: 0;
+                    transform: translateY(8px);
+
+                    transition:
+                        opacity 0.35s ease,
+                        transform 0.35s ease;
+                }
+
+                /* título */
+                .btn-swap .btn-conteudo strong {
+                    font-size: 20px;
+                    font-weight: 800;
+                    margin-bottom: 6px;
+                    line-height: 1.1;
+                }
+
+                /* texto */
+                .btn-swap .btn-conteudo {
+                    font-size: 13.5px;
+                }
+
+                /* HOVER / FOCUS */
+                .btn-swap:hover .btn-logos,
+                .btn-swap:focus-within .btn-logos {
+                    opacity: 0;
+                    transform: translateY(-6px);
+                }
+
+                .btn-swap:hover .btn-conteudo,
+                .btn-swap:focus-within .btn-conteudo {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+
+
+                @media (max-width: 1024px) {
+
+                    /* remove animações */
+                    .btn-swap .btn-logos,
+                    .btn-swap .btn-conteudo {
+                        transition: none !important;
+                    }
+
+                    /* força estado inicial */
+                    .btn-swap .btn-logos {
+                        opacity: 1 !important;
+                        transform: none !important;
+                        position: relative;
+                    }
+
+                    /* mantém texto oculto */
+                    .btn-swap .btn-conteudo {
+                        opacity: 0 !important;
+                        transform: none !important;
+                        pointer-events: none;
+                    }
+
+                    /* desativa hover/focus */
+                    .btn-swap:hover .btn-logos,
+                    .btn-swap:focus-within .btn-logos {
+                        opacity: 1;
+                        transform: none;
+                    }
+
+                    .btn-swap:hover .btn-conteudo,
+                    .btn-swap:focus-within .btn-conteudo {
+                        opacity: 0;
+                        transform: none;
+                    }
+                }

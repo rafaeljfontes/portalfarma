@@ -1,0 +1,16 @@
+const fs = require('node:fs'), vm = require('node:vm'), assert = require('node:assert/strict'), path = require('node:path');
+const view = fs.readFileSync(path.join(__dirname, '../application/views/atitude-farmaceutica/inscricao_view.php'), 'utf8');
+const campo = {value:'2026-04-19',max:'2026-04-19',handlers:{},setCustomValidity(texto){this.erro=texto;},addEventListener(evento,fn){this.handlers[evento]=fn;}};
+const avisos=[];
+const context={document:{querySelector:()=>campo},Swal:{fire:aviso=>avisos.push(aviso)}};
+vm.createContext(context);
+vm.runInContext(view.slice(view.indexOf('        const campoDataInicio ='),view.indexOf('        const limitesTextos =')),context);
+campo.handlers.change();assert.equal(campo.erro,'');assert.equal(avisos.length,0);
+campo.value='2026-04-20';campo.handlers.change();assert(campo.erro.includes('19/04/2026'));assert.equal(avisos[0].icon,'warning');
+campo.value='2026-10-19';campo.handlers.input();assert(campo.erro.includes('pelo menos 6 meses'));
+campo.value='2026-04-18';campo.handlers.input();assert.equal(campo.erro,'');
+assert.match(view, /name="nome_projeto" maxlength="150"/);
+assert.match(view, /<select name="cidade_projeto"/);
+assert(view.includes('foreach ($cidades_mineiras as $cidadeMineira)'));
+assert(view.includes('!input.checkValidity()'));
+console.log('OK: data máxima, aviso Swal, correção da data, título e select de cidades.');

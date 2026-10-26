@@ -1,0 +1,211 @@
+<?php
+
+require_once(dirname(__FILE__).'/../config/mysql_site.class.php');
+
+class Capacifar_model extends CI_Model {
+	
+	public function inserir($dados) {
+		
+		/* SEPRAR DADOS PARA GERAR LOG */
+		$dadosLog = implode(', ', array_map(
+				function ($v, $k) { return str_replace("", " ", $k). ' = ' . str_replace(" ", "", $v); },
+				$dados,
+				array_keys($dados)
+		));
+		//print_r($dados);//exit;
+		
+		if(isset($dados)){
+			
+			//if()
+			// GRAVAR LOG
+			$this->gerarLog( $this->session->userdata('id') , " [INSERIU ATITUDE FARMACEUTICA] => $dadosLog ");
+		
+			return $this->db->insert('tbl_atitudefarmaceutica_participantes', $dados);
+			//exit;
+		}
+		
+	}
+	
+	public function listarMenu($id = null) {
+		
+			$query = $this->db->get('tbl_capacifar_home');
+
+			return $query->result();
+	}
+	
+	public function listaCursos($id) {
+		$this->db->where('menu_id', $id);
+		$query = $this->db->get('tbl_capacifar_cursos');
+		
+		return $query->result();
+	}
+
+	public function listWhere($id = null) {
+		
+		$this->db->where('nomecurto', $id);
+		$query = $this->db->get('tbl_capacifar_cursos');
+		
+		
+		return $query->result();
+	}
+	
+	public function verificaUsuarioAva($dados){
+		$banco = new mysql_site();
+		$username = preg_replace('/[^0-9]/', '', $dados['cpf']);
+
+		$stm = $banco->pdo->query("SELECT * FROM mdl_user where username='".$username."' ");
+		
+		if($stm->rowCount() > 0){
+			foreach($stm as $row){
+				$enrolid = $row['id'];
+			}
+			return $enrolid;
+		} else {
+			return null;
+		}
+	}
+
+	public function searchEnrol($dados) {
+		//print_r($dados);
+		$banco = new mysql_site();
+
+		$stm = $banco->pdo->query("SELECT id FROM mdl_enrol WHERE courseid='".$dados['post']['courseid']."' AND enrol='manual' ");
+		//print_r($stm);
+		foreach($stm as $row){
+			$enrolid = $row['id'];
+		}
+			return $enrolid;
+	}
+
+	public function InsertUserdb($dados){
+		//print_r($dados);
+		//ELIMINANDO DADOS DO ARRAY
+		unset($dados['nome_curto']);
+		unset($dados['menuid']);
+		unset($dados['publicoalvo']);
+		unset($dados['pf_senha']);
+		unset($dados['pf_senha_match']);
+		unset($dados['declaro_veracidade']);
+
+		$this->db->insert('tbl_capacifar_inscritoss', $dados);
+		return $this->db->insert_id();
+	}
+
+	public function enrolUser($enrolid, $dados = null) {
+		//require_once(dirname(__FILE__).'/../config/mysql_site.class.php');
+		
+		$retDB = $this->InsertUserdb($dados);
+		$banco = new mysql_site();
+		
+		$senhaHash 	= password_hash($dados['pf_senha'], PASSWORD_DEFAULT);
+		$username 	= preg_replace('/[^0-9]/', '', $dados['cpf']);
+		if($dados['crfmg'] != ''){
+			$crfmg = $dados['crfmg'];
+		} else {
+			$crfmg = '0';
+		}
+		
+		try {
+			 $stm = $banco -> pdo -> prepare("insert into mdl_user(username, mdl_user.password, firstname, lastname, email, idnumber, city, confirmed, mnethostid, lang)values(:username,:password,:fisrtname,:lastname,:mail,:crf,:city,:confirmed,:mnethostid,:lang);");
+                    $stm -> bindValue(":username",  $username);
+                    $stm -> bindValue(":password",  $senhaHash);
+                    $stm -> bindValue(":fisrtname", $dados['nome']);
+                    $stm -> bindValue(":lastname",  $dados['sobrenome']);
+                    $stm -> bindValue(":mail",      $dados['email']);
+					$stm -> bindValue(":crf",       $crfmg);
+					$stm -> bindValue(":city",      $dados['cidade']);
+					$stm -> bindValue(":confirmed", '1');
+					$stm -> bindValue(":mnethostid", '1');
+                    $stm -> bindValue(":lang", 		'pt-br');
+					
+					$stm -> execute(); //EXECUTANDO
+
+					$userLastID = $banco->pdo->lastInsertId();
+					//echo '122/mdl_user'.$userLastID.'<hr>';
+                    if (!empty($userLastID)) {
+
+						$this->userEnrolments($enrolid, $dados, $userLastID);
+                    }else{
+                        $banco->pdo->rollBack();
+                    }
+        }catch (Exception $e) {
+			echo 'Exceção capturada: ',  $e->getMessage(), "\n";
+        }
+				
+	}
+
+	public function userEnrolments($enrolid, $dados, $userLastID) {
+
+
+		$banco = new mysql_site();
+		
+		$date = new DateTime();
+		$timestamp = $date->getTimestamp();
+		
+		try {
+			$stm = $banco -> pdo -> prepare("insert into mdl_user_enrolments(status, enrolid, userid, timestart, timeend, timecreated, timemodified)values(:status,:enrolid,:userid,:timestart,:timeend,:timecreated,:timemodified);");
+				   $stm -> bindValue(":status",  	'0');
+				   $stm -> bindValue(":enrolid",  	$enrolid);
+				   $stm -> bindValue(":userid", 	$userLastID);
+				   $stm -> bindValue(":timestart",  $timestamp);
+				   $stm -> bindValue(":timeend",    '0');
+				   $stm -> bindValue(":timecreated", $timestamp);
+				   $stm -> bindValue(":timemodified", $timestamp);
+				   
+				   $stm -> execute();//EXECUTANDO
+				   
+				   //$this->roleAssignments($dados, $userLastID);
+				   //echo '157/mdl_user_enrolments'.$banco->pdo->lastInsertId().'<hr>';  
+				  
+
+				   	if (!empty($banco->pdo->lastInsertId())) {
+					   	//$banco -> pdo -> commit();
+					   	
+						$this->roleAssignments($dados, $userLastID);
+				   	}else{
+						$banco -> pdo -> rollBack();
+				   	}
+	   	}catch (Exception $e) {
+			echo 'Exceção capturada: ',  $e->getMessage(), "\n";
+	   	}
+	}
+
+	public function roleAssignments($dados, $userLastID){
+		//echo "entrou aqui";
+		$banco = new mysql_site();
+
+		$date = new DateTime();
+		$timestamp = $date->getTimestamp();
+
+		$stm = $banco -> pdo -> query("SELECT id FROM mdl_context WHERE instanceid=".$dados['courseid']." AND contextlevel=50;");
+
+		foreach($stm as $row){
+			$enrolid = $row['id'];
+		}
+		//echo '184/mdl_context'.$enrolid.'<hr>'; 
+
+		try {
+			$stm = $banco -> pdo -> prepare("insert into mdl_role_assignments (roleid,contextid,userid,timemodified)values(:roleid,:contextid,:userid,:timemodified);");
+				   	$stm -> bindValue(":roleid",  	'5');
+				   	$stm -> bindValue(":contextid", 	$enrolid);
+				   	$stm -> bindValue(":userid", 	$userLastID);
+				   	$stm -> bindValue(":timemodified", $timestamp);
+
+					
+				   	$stm -> execute();//EXECUTANDO
+					   $thelastId = $banco->pdo->lastInsertId();//ULTIMO ID
+					   
+					   //echo '197/mdl_role_assignments'.$thelastId.'<hr>';
+				   	
+					if (!empty($thelastId)) {
+						return $thelastId;
+				  	}else{
+						return null;
+				   	}
+
+	   	}catch (Exception $e) {
+			echo 'Exceção capturada: ',  $e->getMessage(), "\n";
+	   	}
+
+	}
+}

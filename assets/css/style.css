@@ -1,0 +1,90 @@
+/* =========================================================
+   FONTES – RAWLINE
+========================================================= */
+
+@font-face {
+  font-family: "Rawline";
+  src: url("../fonts/rawline/rawline-100.ttf") format("truetype");
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: "Rawline";
+  src: url("../fonts/rawline/rawline-200.ttf") format("truetype");
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: "Rawline";
+  src: url("../fonts/rawline/rawline-300.ttf") format("truetype");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Rawline";
+  src: url("../fonts/rawline/rawline-400.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Rawline";
+  src: url("../fonts/rawline/rawline-500.ttf") format("truetype");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Rawline";
+  src: url("../fonts/rawline/rawline-600.ttf") format("truetype");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Rawline";
+  src: url("../fonts/rawline/rawline-700.ttf") format("truetype");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Rawline";
+  src: url("../fonts/rawline/rawline-800.ttf") format("truetype");
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: "Rawline";
+  src: url("../fonts/rawline/rawline-900.ttf") format("truetype");
+  font-weight: 900;
+}
+
+/* =========================================================
+    RESET GLOBAL
+========================================================= */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Rawline", Arial, sans-serif;
+  letter-spacing: 0.2px;
+  background-color: #f7f9f8;
+
+  padding-top: 120px;
+}
+
+
+/* =========================================================
+    CONTAINER PADRÃO
+========================================================= */
+.container-portal {
+  max-width: 1500px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 0;
+}

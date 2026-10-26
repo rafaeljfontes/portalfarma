@@ -1,0 +1,184 @@
+:root {
+            --primary-color: #054589;
+            --accent-color: #0d6efd;
+            --bg-light: #f8fbff;
+        }
+
+        body {
+            height: 100vh;
+            background-color: var(--bg-light);
+            overflow: hidden;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        .login-container {
+            display: flex;
+            height: 100vh;
+        }
+
+        /* LADO ESQUERDO - DESIGN REFINADO */
+        .login-image {
+            flex: 1.2;
+            background: linear-gradient(135deg, rgba(5, 69, 137, 0.8), rgba(13, 110, 253, 0.6)), 
+                        url("https://images.unsplash.com/photo-1521791136064-7986c2920216") no-repeat center center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            padding: 60px;
+        }
+
+        .image-content {
+            max-width: 500px;
+            text-align: left;
+        }
+
+        .image-content h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .image-content p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        /* LADO DIREITO - FORMULÁRIO */
+        .login-form {
+            flex: 0.8;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            position: relative;
+        }
+
+        .form-box {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .logo-placeholder {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .logo-placeholder img {
+            max-height: 80px;
+            margin-bottom: 20px;
+        }
+
+        .form-box h2 {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+
+        .form-box p.subtitle {
+            color: #6c757d;
+            margin-bottom: 35px;
+        }
+
+        /* CUSTOM INPUTS */
+        .form-label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #495057;
+        }
+
+        .input-group-text {
+            background-color: transparent;
+            border-right: none;
+            color: #adb5bd;
+        }
+
+        .form-control {
+            border-left: none;
+            padding: 12px;
+            font-size: 0.95rem;
+            border-color: #dee2e6;
+        }
+
+        .form-control:focus {
+            box-shadow: none;
+            border-color: var(--accent-color);
+        }
+
+        .input-group:focus-within .input-group-text {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        /* BOTÃO ESTILO DASHBOARD */
+        .btn-login {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(13, 110, 253, 0.2);
+            margin-top: 10px;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(13, 110, 253, 0.3);
+            color: white;
+        }
+
+        .alert-custom {
+            border-radius: 8px;
+            font-size: 0.9rem;
+            border: none;
+            background-color: #fff5f5;
+            color: #e03131;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .extra {
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        .extra a {
+            text-decoration: none;
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 992px) {
+            .login-image { display: none; }
+            .login-form { flex: 1; }
+        }
+		
+		#btnSenha {
+			background-color: transparent;
+			color: #adb5bd;
+			transition: all 0.2s;
+		}
+
+		#btnSenha:hover {
+			color: var(--accent-color);
+			background-color: transparent;
+		}
+
+		/* Remove o efeito de foco azul padrão do bootstrap no botão do olho */
+		#btnSenha:focus {
+			box-shadow: none;
+		}

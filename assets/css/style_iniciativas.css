@@ -1,0 +1,269 @@
+/* SEÇÃO */
+.secao-iniciativas {
+    background-color: #12455e;
+    padding: 70px 20px 90px;
+    text-align: center;
+}
+
+
+/* TÍTULO */
+.titulo-iniciativas {
+    max-width: 660px;
+    margin: 0 auto 65px;
+    color: #fff;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 1.3;
+    text-align: center;
+}
+
+
+/*/* DESKTOP */
+.logos-desktop {
+    display: block;
+}
+
+
+/* LINHA DE CIMA – 5 LOGOS */
+.logos-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px 32px;
+    max-width: 1400px;
+    margin: 0 auto 56px;
+    justify-items: center;
+}
+
+
+/* LINHA DE BAIXO – 4 LOGOS */
+.logos-grid-bottom {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 48px 32px;
+    justify-items: center;
+}
+
+
+/* LOGO */
+.logo-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px;
+    border-radius: 18px;
+    transition: 0.3s ease;
+}
+
+
+.logo-link img {
+    max-height: 80px;
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
+}
+
+
+/* HOVER */
+.logo-link:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-4px);
+}
+
+
+/* Mérito Acadêmico */
+.logo-link.logo-merito img {
+    max-width: 155px;
+    height: auto;
+}
+
+
+/* Pesquisa Científica */
+.logo-link.logo-pesquisa img {
+    max-width: 155px;
+    height: auto;
+}
+
+
+.logo-link.logo-podcast img {
+    max-width: 170px;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+
+    .logo-link.logo-merito img,
+    .logo-link.logo-pesquisa img,
+    .logo-link.logo-podcast img {
+        max-width: 130px;
+    }
+}
+
+
+.logos-carousel {
+    display: none;
+    overflow: hidden;
+}
+
+.logos-track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    animation: scroll-logos 19s linear infinite;
+}
+
+@keyframes scroll-logos {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    /* OCULTA desktop */
+    .logos-grid,
+    .logos-grid-bottom,
+    .logos-desktop {
+        display: none;
+    }
+
+    /* MOSTRA carrossel */
+    .logos-carousel,
+    .logos-carousel.auto-scroll {
+        display: block;
+        padding: 12px 0 16px;
+    }
+
+    .secao-iniciativas {
+        background-color: #12455e;
+        padding: 40px 15px 20px;
+        text-align: center;
+    }
+
+    .logos-track {
+        gap: 17px;
+    }
+
+    /* TAMANHO DAS LOGOS */
+    .logo-link {
+        width: 160px;
+        height: 100px;
+    }
+
+    .logo-link img {
+        max-height: 56px;
+        /* antes 48px */
+    }
+
+    /* TÍTULO */
+    .titulo-iniciativas {
+        font-size: 18px;
+        line-height: 1.4;
+        margin-bottom: 18px;
+        padding: 0 12px;
+    }
+}
+
+/* ======================
+   TOOLTIP DAS LOGOS
+====================== */
+
+.logo-link.has-tooltip {
+    position: relative;
+}
+
+/* Tooltip padrão – abre para cima */
+.logo-link .tooltip {
+    position: absolute;
+    bottom: calc(100% + 16px);
+    left: 50%;
+    transform: translateX(-50%) translateY(6px);
+
+    width: 370px;
+    padding: 14px 16px;
+
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+
+    color: #12455e;
+    font-size: 14px;
+    line-height: 1.4;
+    text-align: center;
+
+    border-radius: 14px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+
+    z-index: 20;
+}
+
+/* ======================
+   TOOLTIP – LINHA DE BAIXO
+====================== */
+
+.logos-grid-bottom .logo-link .tooltip {
+    top: calc(100% + 16px);
+    bottom: auto;
+
+    transform: translateX(-50%) translateY(-6px);
+}
+
+/* Setinha – linha de baixo */
+.logos-grid-bottom .logo-link .tooltip::after {
+    top: auto;
+    bottom: 100%;
+    border-color:
+        transparent transparent rgba(255, 255, 255, 0.88) transparent;
+}
+
+/* Título */
+.logo-link .tooltip strong {
+    display: block;
+    font-size: 15px;
+    color: #0b2a3a;
+
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+/* Setinha */
+.logo-link .tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    border-width: 7px;
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.88) transparent transparent transparent;
+}
+
+
+/* Hover desktop */
+.logo-link.has-tooltip:hover .tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Acessibilidade / mobile (tap) */
+.logo-link.has-tooltip:focus-within .tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Hover – linha de baixo */
+.logos-grid-bottom .logo-link.has-tooltip:hover .tooltip,
+.logos-grid-bottom .logo-link.has-tooltip:focus-within .tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}

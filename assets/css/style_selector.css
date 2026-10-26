@@ -1,0 +1,1064 @@
+        /* =========================================================
+        AREA SELECTOR – BASE
+        ========================================================= */
+        .area-selector {
+            background: #f8fafc;
+            position: relative;
+            padding: 80px 20px 0px;
+        }
+
+        .area-container {
+            max-width: 1100px;
+            margin: 0 auto 50px;
+        }
+
+
+        @media (max-width: 768px) {
+
+            .area-container {
+                max-width: 1080px;
+                margin: 0px auto 0px;
+            }
+
+            
+            .area-icon {
+                box-shadow: none;
+            }
+
+            .area-icon:hover {
+                box-shadow: none;
+                transform: none;
+            }
+
+
+        }
+
+        /* =========================================================
+        HEADER – TEXTO SUPERIOR
+        ========================================================= */
+        .area-header {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .area-title {
+            font-size: 42px;
+            font-weight: 700;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+            color: #2f66d0;
+            line-height: 1.25;
+        }
+
+        .area-text p {
+            font-size: 19px;
+            line-height: 1.6;
+            color: #1f2937;
+            margin-bottom: 14px;
+        }
+
+        .area-text .area-sub {
+            font-weight: 700;
+            font-size: 19px;
+            color: #1f2937;
+        }
+
+        /* =========================================================
+        BOX CINZA (FUNDO DOS FILTROS)
+        ========================================================= */
+        .area-box {
+            background: #e9eef3;
+            border-radius: 48px;
+            max-width: 1028px;
+            padding: 50px 50px;
+
+            margin: 0 auto;
+        }
+
+
+        /* =========================================================
+        LAYOUT INTERNO (ABAS + ÍCONES)
+        ========================================================= */
+        .area-layout {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 56px;
+            align-items: center;
+        }
+
+        /* =========================================================
+        COLUNA DAS ABAS
+        ========================================================= */
+        .area-tabs {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .area-tabs-texto {
+            max-width: 970px;
+            margin: 46px auto 0;
+            text-align: center;
+            padding: 0 16px;
+        }
+
+        .area-tabs-texto p {
+            font-size: 21px;
+            font-weight: 600;
+            color: #2f66d0;
+            line-height: 1.45;
+            letter-spacing: -0.2px;
+            animation: fadeText .3s ease;
+        }
+
+
+        @media (max-width: 768px) {
+
+            .area-tabs-texto {
+                margin-top: 18px;
+                max-width: 100%;
+            }
+
+            .area-tabs-texto p {
+                font-size: 16px;
+                line-height: 1.4;
+            }
+
+
+        }
+
+
+        /* =========================================================
+        MOBILE – SETAS
+        ========================================================= */
+
+        .area-tabs-mobile {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+        }
+
+        /* estilo das setas */
+        .area-arrow {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: none;
+            background: #ffffff;
+            color: #3b5fc0;
+            font-size: 26px;
+            font-weight: 700;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, .12);
+            cursor: pointer;
+        }
+
+        /* label central */
+        .area-tab-display {
+            background: #3b5fc0;
+            color: #ffffff;
+            padding: 14px 28px;
+            border-radius: 999px;
+            text-align: center;
+            line-height: 1.2;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            box-shadow: 0 10px 24px rgba(59, 95, 192, .35);
+            white-space: nowrap;
+        }
+
+        .area-tab-display br {
+            display: none;
+        }
+
+        /* ================= MOBILE ================= */
+        @media (max-width: 768px) {
+
+            .area-tabs {
+                display: none;
+            }
+
+
+        }
+
+
+        /* =========================================================
+        BOTÃO ABA
+        ========================================================= */
+        .area-tab {
+            width: 100%;
+            padding: 16px 22px;
+            border-radius: 999px;
+
+            background: #f8fafc;
+            border: none;
+
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+
+            color: #475569;
+            cursor: pointer;
+
+            transition:
+                background 0.3s ease,
+                color 0.3s ease,
+                box-shadow 0.3s ease,
+                transform 0.2s ease;
+        }
+
+        /* Hover */
+        .area-tab:hover {
+            background: #e2e8f0;
+        }
+
+        /* =========================================================
+        ABA ATIVA (DESTAQUE AZUL)
+        ========================================================= */
+        .area-tab.active {
+            background: #3b5fc0;
+            color: #ffffff;
+
+            box-shadow:
+                0 10px 24px rgba(59, 95, 192, 0.35);
+
+            transform: translateY(-1px);
+        }
+
+        /* =========================================================
+        GRID DE ÍCONES
+        ========================================================= */
+        .area-icons {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 24px;
+            align-items: center;
+            max-width: 560px;
+        }
+
+
+        /* =========================================================
+        BOTÃO DE ÍCONE
+        ========================================================= */
+        .area-icon {
+            width: 67px;
+            height: 67px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #ffffff;
+            border-radius: 16px;
+            border: none;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 6px 14px rgba(0, 0, 0, 0.06);
+
+            transition:
+                background 0.3s ease,
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        /* ÍCONE */
+        .area-icon i {
+            font-size: 23px;
+            color: #2563eb;
+
+            transition: color 0.3s ease, transform 0.25s ease;
+        }
+
+        /* =========================================================
+        HOVER
+        ========================================================= */
+        .area-icon:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 26px rgba(0, 0, 0, 0.15);
+        }
+
+        .area-icon:hover i {
+            transform: scale(1.15);
+        }
+
+        /* =========================================================
+        ATIVO (IGUAL À IMAGEM)
+        ========================================================= */
+        .area-icon.active {
+            background: #3b5fc0;
+            box-shadow:
+                0 12px 28px rgba(59, 95, 192, 0.45);
+        }
+
+        .area-icon.active i {
+            color: #ffffff;
+        }
+
+
+        /* =========================================================
+        BALÃO (LABEL) – BASE
+        ========================================================= */
+        .area-icon {
+            position: relative;
+        }
+
+        .area-icon .label {
+            position: absolute;
+            white-space: nowrap;
+
+            background: #1f2937;
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 600;
+
+            padding: 6px 10px;
+            border-radius: 8px;
+
+            opacity: 0;
+            pointer-events: none;
+
+            transform: translateY(6px) scale(0.95);
+            transition:
+                opacity 0.25s ease,
+                transform 0.25s ease;
+        }
+
+        /* =========================================================
+        POSIÇÃO – PARA CIMA
+        ========================================================= */
+        .area-icon[data-position="up"] .label {
+            bottom: calc(100% + 10px);
+            left: 50%;
+            transform: translateX(-50%) translateY(6px) scale(0.95);
+        }
+
+
+        /* =========================================================
+        POSIÇÃO – PARA BAIXO
+        ========================================================= */
+        .area-icon[data-position="down"] .label {
+            top: calc(100% + 10px);
+            left: 50%;
+            transform: translateX(-50%) translateY(-6px) scale(0.95);
+        }
+
+        .area-icon.active .label {
+            color: #ffffff;
+        }
+
+        /* =========================================================
+        HOVER – MOSTRAR BALÃO
+        ========================================================= */
+        @media (min-width: 769px) {
+            .area-icon:hover .label {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0) scale(1);
+            }
+            
+        }
+
+
+        /* =========================================================
+        RESPONSIVO – ÍCONES
+        ========================================================= */
+        @media (max-width: 1024px) {
+            .area-icons {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* ================== MOBILE ================== */
+        @media (max-width: 768px) {
+
+            .area-icons {
+                display: grid;
+
+                grid-auto-flow: column;
+                grid-template-rows: repeat(2, 1fr);
+
+                gap: 14px;
+
+                overflow-x: auto;
+                overflow-y: hidden;
+
+                width: 100%;
+                max-width: 100%;
+
+                padding: 10px 6px 14px;
+
+                scroll-snap-type: x mandatory;
+            }
+
+            .area-icon {
+                box-shadow: none;
+            }
+
+            .area-icon:hover {
+                box-shadow: none;
+                transform: none;
+            }
+
+            /* esconder scrollbar */
+            .area-icons::-webkit-scrollbar {
+                display: none;
+            }
+
+            .area-icon {
+                min-width: 78px;
+                height: 78px;
+
+                scroll-snap-align: start;
+
+                border-radius: 16px;
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .area-icon i {
+                font-size: 22px;
+                margin-bottom: 4px;
+            }
+
+            .area-icon .label {
+                position: static !important;
+                opacity: 1 !important;
+                transform: none !important;
+
+                margin-top: 4px;
+
+                font-size: 11px;
+                font-weight: 600;
+                line-height: 1.2;
+                text-align: center;
+
+                white-space: normal;
+                /* permite quebra */
+                max-width: 70px;
+                /* força quebra quando necessário */
+                word-break: break-word;
+
+                background: transparent;
+                padding: 0;
+                color: #1f2937;
+            }
+
+        }
+
+        @media (max-width: 360px) {
+            .area-icons {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+
+        /* =========================================================
+        RESPONSIVO – ABAS
+        ========================================================= */
+
+        @media (max-width: 768px) {
+
+            .area-layout {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 26px;
+            }
+
+            .area-tabs {
+                display: none;
+            }
+
+            .area-tabs-mobile {
+                display: flex;
+                margin-top: 40px;
+            }
+            
+        }
+
+
+        /* =========================================================
+        RESPONSIVO – TEXTO
+        ========================================================= */
+        @media (max-width: 768px) {
+
+            .area-selector {
+                background: #f8fafc;
+                padding: 40px 26px 0;
+            }
+
+            .area-header {
+                grid-template-columns: 1fr;
+                margin-bottom: 20px;
+                gap: 20px;
+            }
+
+            .area-title {
+                font-size: 26px;
+                line-height: 1.23;
+            }
+
+            .area-title br {
+                display: none;
+            }
+
+            .area-text p,
+            .area-text {
+                font-size: 16px;
+            }
+
+            .area-sub {
+                font-size: 15px !important;
+                max-width: 240px;
+            }
+
+            .area-box {
+                padding: 18px 24px;
+                border-radius: 32px;
+            }
+
+        }
+
+        /* =========================================================
+        TABS CONTENT
+        ========================================================= */
+        .tabs-content {
+            position: relative;
+        }
+
+        /* Transição entre abas */
+        .tab-pane {
+            display: none;
+        }
+
+        .tab-pane.active {
+            display: block;
+            animation: fadeUpSoft .45s ease;
+        }
+
+        @keyframes fadeUpSoft {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* =========================================================
+        WRAPPER DOS CARDS
+        ========================================================= */
+        .cards-wrapper {
+            overflow: hidden;
+            padding-top: 20px;
+            padding-bottom: 10px;
+        }
+
+        .cards-track {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 28px;
+        }
+
+        /* =========================================================
+        PAGINAÇÃO
+        ========================================================= */
+        .paginacao-cursos {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 40px 0 40px;
+        }
+
+        .page-btn {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            border: none;
+            background: #eef1f7;
+            color: #4b5563;
+            font-weight: 700;
+            cursor: pointer;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            transition: background .3s ease,
+                transform .25s ease,
+                box-shadow .3s ease;
+        }
+
+        .page-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, .15);
+        }
+
+        .page-btn.active {
+            background: linear-gradient(135deg, #2f66d0, #4153a3);
+            color: #ffffff;
+            box-shadow: 0 8px 20px rgba(47, 102, 208, .35);
+        }
+
+        /* =========================================================
+        CARD CURSO – BASE
+        ========================================================= */
+        .card-curso {
+            width: 325px;
+            background: #ffffff;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #eef1f7;
+
+            position: relative;
+
+            box-shadow: 0 12px 28px rgba(0, 0, 0, .08);
+            transition: box-shadow .3s ease;
+        }
+
+        .card-curso:hover {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, .15);
+        }
+
+        /* =========================================================
+        TOPO
+        ========================================================= */
+        .card-curso-topo {
+            position: relative;
+            height: 230px;
+            background: #eaf0fb;
+        }
+
+        .card-curso-topo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-curso-topo::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top,
+                    rgba(0, 0, 0, .45),
+                    rgba(0, 0, 0, .05));
+        }
+
+        /* Tipo */
+        .tipo-evento {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            padding: 6px 16px;
+
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+
+            color: #2f66d0;
+            background: linear-gradient(135deg, #ffffff, #f2f6ff);
+
+            border-radius: 12px;
+            box-shadow:
+                0 6px 18px rgba(47, 102, 208, .25),
+                inset 0 0 0 1px rgba(47, 102, 208, .15);
+
+            z-index: 2;
+        }
+
+        /* =========================================================
+        INFO
+        ========================================================= */
+        .card-curso-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 12px 18px;
+            font-size: 13px;
+
+            background: linear-gradient(to bottom,
+                    #f1f5ff 0%,
+                    #f8faff 45%,
+                    #ffffff 100%);
+
+            color: #4b5563;
+            position: relative;
+        }
+
+        .card-curso-info::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 85%;
+            height: 1px;
+            background: #e3e8f3;
+        }
+
+        .card-curso-info span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 10px;
+            border-radius: 10px;
+            background: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, .05);
+            font-weight: 600;
+        }
+
+        .card-curso-info i {
+            font-size: 15px;
+            color: #2f66d0;
+        }
+
+        /* =========================================================
+        BODY
+        ========================================================= */
+        .card-curso-body {
+            padding: 16px 18px 24px;
+        }
+
+        .nome-evento {
+            display: inline-block;
+            color: #e91e63;
+            font-weight: 700;
+            font-size: 17px;
+            letter-spacing: 1.1px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .nome-curso {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.35;
+            color: #1f2937;
+            margin-bottom: 22px;
+
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Botão */
+        .btn-saiba-mais {
+            display: block;
+            text-align: center;
+            padding: 13px;
+            background: linear-gradient(135deg, #2f66d0, #4153a3);
+            color: #ffffff;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+
+        .btn-saiba-mais:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 22px rgba(47, 102, 208, .35);
+        }
+
+        /* =========================================================
+        OVERLAY HOVER (DESKTOP)
+        ========================================================= */
+        .card-curso-hover {
+            position: absolute;
+            inset: 0;
+            background: #ffffff;
+            padding: 28px 22px 88px;
+            border-radius: 20px;
+
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+
+            transition: opacity .35s ease, transform .35s ease;
+            z-index: 5;
+        }
+
+        .card-curso:hover .card-curso-hover {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .filtro-cursos-container {
+            position: absolute;
+            left: calc(50% - 615px);
+            top: 65%;
+            transform: translateY(-50%);
+            z-index: 100;
+        }
+
+        .filtro-cursos-container.visivel {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        .btn-filtro {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            border: none;
+
+            background: linear-gradient(145deg, #2f66d0, #3b56b2);
+            color: #ffffff;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 22px;
+            cursor: pointer;
+
+            box-shadow:
+                0 12px 28px rgba(47, 102, 208, .35);
+
+            transition:
+                transform .25s ease,
+                box-shadow .25s ease;
+        }
+
+        .btn-filtro:hover {
+            transform: translateY(-2px) scale(1.04);
+            box-shadow:
+                0 18px 36px rgba(47, 102, 208, .45),
+                0 0 0 8px rgba(255, 255, 255, .9);
+        }
+
+        .filtro-cursos {
+            position: absolute;
+            left: 140px;
+            top: 55%;
+            transform: translateY(-50%) translateX(-10px);
+
+            width: 279px;
+            padding: 22px;
+
+            background: #F8FAFC;
+            border-radius: 32px;
+
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
+
+            opacity: 0;
+            pointer-events: none;
+            transition: all .3s ease;
+        }
+
+        .filtro-cursos.ativo {
+            opacity: 1;
+            transform: translateY(-50%) translateX(0);
+            pointer-events: auto;
+        }
+
+
+        .filtro-cursos input,
+        .filtro-cursos select {
+            padding: 14px 18px;
+            border-radius: 999px;
+            font-size: 15px;
+
+
+            border: 1px solid #e5e7eb;
+
+            font-size: 13px;
+            color: #374151;
+            background: #fafafa;
+
+            transition: border .2s ease, box-shadow .2s ease;
+        }
+
+        .filtro-cursos input:focus,
+        .filtro-cursos select:focus {
+            border-color: #2f66d0;
+            box-shadow: 0 0 0 3px rgba(47, 102, 208, .15);
+            outline: none;
+        }
+
+        .btn-filtro i {
+            transition: transform .3s ease, opacity .2s ease;
+        }
+
+        .btn-filtro:active i {
+            transform: scale(0.9);
+        }
+
+        .filtro-decoracao {
+            position: absolute;
+            left: 65px;
+            top: -10%;
+            transform: translateY(-50%);
+
+            width: 23px;
+            height: 35%;
+
+            background: #95afe338;
+            border-radius: 32px;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
+
+            opacity: 0;
+            transition: opacity .3s ease;
+        }
+
+        .filtro-decoracao.ativo {
+            opacity: 1;
+        }
+
+
+        .modalidade-group {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .modalidade-btn {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+
+            padding: 10px 14px;
+            border-radius: 14px;
+            border: none;
+
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+
+            cursor: pointer;
+            transition: all .25s ease;
+
+            background: #e5e7eb;
+            color: #374151;
+        }
+
+        .modalidade-btn.online.active {
+            background-color: #0EA5B7;
+            color: #fff;
+            box-shadow: 0 8px 20px rgba(37, 100, 235, 0.158);
+        }
+
+        .modalidade-btn.presencial.active {
+            background-color: #F43F3F;
+            color: #fff;
+            box-shadow: 0 8px 20px rgba(220, 38, 38, 0.158);
+        }
+
+		.modalidade-btn.universitario {
+			grid-column: 1 / -1;
+			width: 100%;
+		}
+
+		.modalidade-btn.universitario.active {
+			background-color: #7c3aed;
+			color: #fff;
+			box-shadow: 0 8px 20px rgba(124, 58, 237, 0.18);
+		}
+
+        /* =========================================================
+        MOBILE – CARROSSEL
+        ========================================================= */
+        @media (max-width: 768px) {
+
+            .cards-wrapper {
+                overflow-x: auto;
+                overflow-y: hidden;
+                padding-bottom: 46px;
+                scroll-snap-type: x mandatory;
+            }
+
+            .cards-track {
+                display: flex;
+                gap: 30px;
+                padding: 0 36px;
+            }
+
+            .card-curso {
+                flex: 0 0 75vw;
+                max-width: 75vw;
+                scroll-snap-align: center;
+            }
+
+            .paginacao-cursos {
+                display: none;
+            }
+
+            .card-curso-hover {
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+                transform: translateY(12px);
+            }
+
+            .card-curso.is-open .card-curso-hover {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+                pointer-events: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .card-filtro {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-items: center;
+                gap: 12px;
+                padding: 40px 2px 0px;
+            }
+
+            .card-filtro .modalidade-group {
+                display: flex;
+                gap: 10px;
+                flex: 1 1 auto;
+                min-width: 200px;
+            }
+
+            .card-filtro .modalidade-btn {
+                padding: 10px 16px;
+                border: none;
+                border-radius: 16px;
+                cursor: pointer;
+                font-weight: 500;
+                transition: 0.3s;
+                flex: 1;
+                text-align: center;
+            }
+
+            .card-filtro .modalidade-btn:hover {
+                opacity: 0.85;
+            }
+
+            .card-filtro input.filtro-titulo,
+            .card-filtro select.filtro-autor {
+                padding: 8px 12px;
+                border-radius: 14px;
+                border: 1px solid #a09e9e;
+                flex: 2 1 150px;
+                min-width: 150px;
+            }
+        }

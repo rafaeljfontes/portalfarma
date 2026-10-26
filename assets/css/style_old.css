@@ -1,0 +1,151 @@
+ /*
+ @media screen and (min-width: 240px) and (max-width: 560px) { 
+    .painel_login{
+        margin-top: 5% !important;    
+    }
+    
+ }
+ */
+
+*, *:after, *:before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+
+
+body{
+    
+    /* font-family: Roboto; */
+    /*background: #FFF; */
+    font-style: normal;
+    font-weight: normal;
+    line-height: 14px;
+}
+
+.black_top{        
+    text-transform: uppercase;
+    background: #000000;
+    mix-blend-mode: normal;
+    font-size: 0.7em;
+    color: #FFF;
+}
+.gray_top{
+    background: #F0F0E9;
+    mix-blend-mode: normal;
+    font-size: 0.8em;
+    color: #696763;
+}
+
+.top{
+    background: #E4231B;
+}
+
+.painel_login{
+    border: 1px solid #FFF !important;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px;
+    font-size: 0.93em;
+    margin-left: 12% !important;
+    margin-right: 5% !important;
+    /* flex-basis: 30%; */
+}
+
+
+.btn-login{
+    background: #fff !important;
+    color: #E4231B;
+    font-weight: bold;
+    line-height: 19px;
+}
+
+.card{
+    background:#F0F0E9;
+    border: none;
+    margin-top: 5%;
+}
+
+.icon_card{
+    position: absolute;
+    float: left;
+    height: 80px;
+    left: -10px;
+    top: -50px;
+    background: #54E15A;
+    border-radius: 5px;
+    color: #FFF;
+    padding: 5% 20%;
+}
+
+.title_card{
+    font: Roboto;
+    font-size: 1em;
+    font-weight: bold;
+    line-height: 19px;
+    color: #444444;
+    text-align: center;
+   
+}
+
+.card-text{
+    font-size: 0.9em;
+    line-height: 19px;
+    text-align: justify;
+}
+
+
+.filter{
+    border-radius: 5px;
+    background: #E5E5E5;
+    text-align:center;
+}
+
+.filter ul{
+    padding:0px;
+    margin:0px;
+    list-style:none;
+}
+
+.filter ul li{
+    display: inline; 
+    border-right: 1px solid #E4231B;
+    padding: 0 2%;
+    color: #E4231B;
+}
+.filter ul li:last-child {
+    border-right: none;
+}
+
+
+footer{
+    background: linear-gradient(to right, rgb(191, 7, 0) , rgb(228,35,27) );   
+    color:#FFF;
+    width: 100%;
+}
+
+
+.title{
+    font-size: 1.5em;
+    color: #252626;
+    padding: 2% 0 1% 0;
+}
+
+.label-error{
+    color: red !important;
+    text-align: right;
+}
+.input-loader{
+    position: absolute;
+    right: 45px;
+    top: 48%;
+    display: none;
+}
+
+.box{
+    box-shadow: 0px 5px 10px 4px rgba(0,0,0,0.5); margin-bottom:3%; border-radius:15px; background:#FFF
+}

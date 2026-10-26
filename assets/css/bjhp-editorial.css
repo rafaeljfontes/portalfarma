@@ -1,0 +1,12 @@
+.bjhp-photo-preview{aspect-ratio:1;position:relative;display:flex;align-items:center;justify-content:center;border:1px solid #e4e7ec;border-radius:12px;background:#f9fafb;overflow:hidden;text-align:center;color:#667085}
+.bjhp-photo-preview img{width:100%;height:100%;object-fit:contain}
+.bjhp-photo-preview img[hidden]{display:none}
+.bjhp-photo-preview .bi{font-size:64px;color:#98a2b3}
+.bjhp-photo-upload{min-height:140px;border:1px dashed #b2ccff;border-radius:10px;background:#f9faff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:18px;cursor:pointer;transition:.2s ease}
+.bjhp-photo-upload:hover{border-color:#465fff;background:#f5f7ff}
+.bjhp-photo-upload i{color:#465fff;font-size:30px;margin-bottom:8px}
+.bjhp-photo-upload strong{color:#344054;font-size:14px}
+.bjhp-photo-upload span{color:#667085;font-size:12px;margin-top:4px}
+.bjhp-editorial-name{display:inline-flex;align-items:center;gap:10px;min-width:190px}
+.bjhp-editorial-avatar{width:42px;height:42px;flex:0 0 42px;border-radius:50%;object-fit:cover}
+.bjhp-editorial-avatar-empty{display:inline-flex;align-items:center;justify-content:center;background:#eef2f6;color:#667085;font-size:22px}
